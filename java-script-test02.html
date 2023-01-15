@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <title>Teste javascript</title>
+    <meta charset="UTF-8" />
+  </head>
+  <script>
+    var quebrada = false;
+    function mudeLampada(tipo) {
+      if (tipo == 1) {
+        arquivo = "projeto-glass-html5/_imagens/lampada-acesa.jpg";
+      }
+      if (tipo == 2) {
+        arquivo = "projeto-glass-html5/_imagens/lampada-apagada.jpg";
+      }
+      if (tipo == 3) {
+        arquivo = "projeto-glass-html5/_imagens/lampada-quebrada.jpg";
+      }
+      if (tipo == 4) {
+        arquivo = "projeto-glass-html5/_imagens/lampada-apagada.jpg";
+        quebrada = false;
+      }
+      if (!quebrada) {
+        document.getElementById("luz").src = arquivo;
+        if (tipo == 3) {
+          quebrada = true;
+        }
+      }
+    }
+  </script>
+  <body>
+    <h1>Acenda a lânpada</h1>
+
+    <!-- (0) <img src="projeto-glass-html5/_imagens/lampada-apagada.jpg" onclick="acendeLampada()"/>  -->
+
+    <img
+      src="projeto-glass-html5/_imagens/lampada-apagada.jpg"
+      id="luz"
+      onmousemove="mudeLampada(1)"
+      onmouseout="mudeLampada(2)"
+      onclick="mudeLampada(3)"
+    />
+    <button onclick="mudeLampada(4)">atualizar</button>
+  </body>
+</html>
